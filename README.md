@@ -1,2 +1,2 @@
 # JavaScriptPatterns
-JavaScript patterns leaned from various book and articles
+JavaScript patterns learned from various books and articles.
