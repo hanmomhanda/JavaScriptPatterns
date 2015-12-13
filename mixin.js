@@ -4,12 +4,16 @@ var mixin = function(receiver, supplier){
 
     if (Object.getOwnPropertyDescriptor){
         keys.forEach(function(k){
-            descriptor = Object.getOwnPropertyDescriptor(supplier, k);
-            Object.defineProperty(receiver, k, descriptor);
+            if (typeof supplier[k] === 'function'){
+                descriptor = Object.getOwnPropertyDescriptor(supplier, k);
+                Object.defineProperty(receiver, k, descriptor);
+            }
         });
     } else {
         keys.forEach(function(k){
-            receiver[k] = supplier[k];
+            if (typeof supplier[k] === 'function'){
+                receiver[k] = supplier[k];
+            }
         });
     }
 
